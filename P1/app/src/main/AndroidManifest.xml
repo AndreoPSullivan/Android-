@@ -13,8 +13,12 @@
         <activity android:name=".Quizz"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Pantalla_final"
+        android:screenOrientation="portrait"/>
+        <activity android:name=".Configuration"
             android:screenOrientation="portrait"/>
         <activity android:name=".Image_Question"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Clasification"
             android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">

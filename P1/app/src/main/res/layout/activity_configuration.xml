@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Configuration">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:textAlignment="center"
         android:text="Número de preguntas:"
         android:textSize="20sp"/>
     <Spinner
-        android:id="@+id/spinner_dificultad"
+        android:id="@+id/spinner_preguntas"
         android:textSize = "40sp"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:layout_below="@+id/texto"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true" />
   <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonGuardar"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="100dp"
+      android:layout_below="@id/spinner_preguntas"
         android:text="Guardar"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonVolver"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginStart="100dp"
+        android:layout_below="@id/buttonGuardar"
         android:text="Volver al Menú"/>
 
 
-</LinearLayout>
+</RelativeLayout>
