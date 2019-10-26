@@ -123,7 +123,7 @@ public class Quizz extends AppCompatActivity {
                             /*button_validar.setVisibility(View.INVISIBLE);
                             button_seguir.setVisibility(View.VISIBLE);
                             button_volver.setVisibility(View.VISIBLE);*/
-                            
+
 
                             nextQuestion();
                         } else {
