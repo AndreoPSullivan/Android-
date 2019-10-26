@@ -106,11 +106,11 @@ public class Quizz extends AppCompatActivity {
                             }
 
                             if (this.isAnswerRight()) {
-                                Toast.makeText(getApplicationContext(), "¡Correcto!", Toast.LENGTH_LONG).show();
+                               // Toast.makeText(getApplicationContext(), "¡Correcto!", Toast.LENGTH_LONG).show();
                                 score += 3;
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "¡Fallaste!", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getApplicationContext(), "¡Fallaste!", Toast.LENGTH_SHORT).show();
                                 if (score >= 2)
                                     score -= 2;
                                 else if (score >= 1)
@@ -118,10 +118,14 @@ public class Quizz extends AppCompatActivity {
                             }
                             respondida = true;
                             score_text.setText("" + score);
-                            button_validar.setVisibility(View.INVISIBLE);
+
+
+                            /*button_validar.setVisibility(View.INVISIBLE);
                             button_seguir.setVisibility(View.VISIBLE);
-                            button_volver.setVisibility(View.VISIBLE);
-                            //nextQuestion();
+                            button_volver.setVisibility(View.VISIBLE);*/
+                            
+
+                            nextQuestion();
                         } else {
                             Toast.makeText(getApplicationContext(), "¡Elige una respuesta!", Toast.LENGTH_SHORT).show();
 

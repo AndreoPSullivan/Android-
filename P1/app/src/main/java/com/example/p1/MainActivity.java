@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 dificultad = i;
             }
 
+
+
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 //do nothing
@@ -62,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        botonClasificacion.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        goToClasificationScreen();
+                    }
+                }
+        );
 
     }
 
@@ -73,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToConfigurationScreen() {
         Intent i = new Intent(this, Configuration.class);
+        startActivity(i);
+    }
+
+    private void goToClasificationScreen(){
+        Intent i = new Intent(this, Clasification.class);
         startActivity(i);
     }
 
