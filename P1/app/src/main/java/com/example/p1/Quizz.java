@@ -1,6 +1,7 @@
 package com.example.p1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +13,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.p1.Database.AppDatabase;
+import com.example.p1.Entities.QuestionEntity;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Quizz extends AppCompatActivity {
+
+    private QuestionViewModel dbNew;
+    public static QuestionEntity q;
+
 
     private ImageView image;
     private TextView question_text;
@@ -48,6 +56,9 @@ public class Quizz extends AppCompatActivity {
         setContentView(R.layout.activity_quizz);
         Bundle bundle = getIntent().getExtras();
         level = bundle.getInt("Dificultad");
+
+        dbNew = new ViewModelProvider(this).get(QuestionViewModel.class);
+
         this.init();
     }
 
@@ -148,6 +159,7 @@ public class Quizz extends AppCompatActivity {
                         return questionsToShow.get(n_question).isCorrect(answer);
                     }
                 }
+
         );
         button_volver.setOnClickListener(
                 new View.OnClickListener() {
@@ -185,13 +197,27 @@ public class Quizz extends AppCompatActivity {
 
         image.setImageResource(questionsToShow.get(index).getId_image());
         num_question.setText(" " + (indexQuestion + 1));
+
+
+            question_text.setText(q.getPregunta());
+        radioButton1.setText(q.getRespuesta1());
+        radioButton2.setText(q.getRespuesta2());
+        radioButton3.setText(q.getRespuesta3());
+        radioButton4.setText(q.getRespuesta4());
+        /*
         question_text.setText(questionsToShow.get(index).getQuestion());
         radioButton1.setText(questionsToShow.get(index).getChoice1());
         radioButton2.setText(questionsToShow.get(index).getChoice2());
         radioButton3.setText(questionsToShow.get(index).getChoice3());
         radioButton4.setText(questionsToShow.get(index).getChoice4());
+
+         */
+
+        dbNew.loadQuestion(2);
         radioGroup.clearCheck(); // para que en la siguiente pregunta no siga seleccionado uno
         questionsToShow.get(index).setRated(true);
+        dbNew.loadQuestion(2);
+
 
     }
 

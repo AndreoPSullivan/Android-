@@ -1,6 +1,8 @@
 package com.example.p1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,12 +14,21 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.p1.Database.AppDatabase;
+import com.example.p1.Entities.QuestionEntity;
+
 public class MainActivity extends AppCompatActivity {
+    public static final int NUM_TOTAL_PREGUNTAS = 10;
+
+    private QuestionViewModel dbNew;
+
+
     private TextView title;
     Spinner lista;
     Button botonEmpezar, botonConfiguracion, botonClasificacion;
     String[] datos = {"-", "Fácil", "Medio", "Difícil"};
     int dificultad = 0;
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +83,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+        dbNew = new ViewModelProvider(this).get(QuestionViewModel.class);
+
+
+
+        /**
+         * index preguntas
+         * [0-13] Fácil
+         * [14-27] Medio
+         * [28-40] Difícil
+         */
+
+        index = 3;
+        dbNew.loadQuestion(index);
 
     }
 
